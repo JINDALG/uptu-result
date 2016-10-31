@@ -1,4 +1,3 @@
-import os
 import scrapy
 from selenium.webdriver.common.action_chains import ActionChains
 from scrapy import signals
@@ -44,7 +43,8 @@ class Result(scrapy.Spider):
         print self.s_roll+1
         self.root.destroy()
 
-    def makeform(self,fields):
+    # UI form
+    def makeform(self, fields):
        entries = []
        for field in fields:
           row = Frame(self.root)
@@ -70,7 +70,6 @@ class Result(scrapy.Spider):
         self.display = Display(visible=0, size=(800, 600))
         self.display.start()
         self.driver = webdriver.Chrome()
-        #self.driver = webdriver.Firefox()
 
         self.workbook = xlwt.Workbook()
         self.sheet = self.workbook.add_sheet('Sheet_1')
